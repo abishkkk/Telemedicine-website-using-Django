@@ -1,0 +1,28 @@
+<!-- telemedicine_app/templates/telemedicine_app/doctor_list.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor List</title>
+</head>
+<body>
+   {% include 'navbar.html' %}
+    {% block content %}
+
+    <h1>Doctor List</h1>
+    <ul>
+        {% for doctor in doctors %}
+            <li>
+                <strong>{{ doctor.name }}</strong> - {{ doctor.specialization }}<br>
+                Phone: {{ doctor.phone_number }}<br>
+                Email: {{ doctor.email }}
+            </li>
+        {% empty %}
+            <li>No doctors available.</li>
+        {% endfor %}
+    </ul>
+    {%endblock content%}
+</body>
+</html>
