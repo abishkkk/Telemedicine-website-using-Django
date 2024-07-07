@@ -1,0 +1,28 @@
+<!-- telemedicine_app/templates/telemedicine_app/patient_list.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient List</title>
+</head>
+<body>
+    {% include 'navbar.html' %}
+    {% block content%}
+    <div class="container">
+        <h1>Patient List</h1>
+        <ul>
+            {% for appointment in appointments %}
+                <li>
+                    Patient: {{ appointment.patient.name }} - Age: {{ appointment.patient.age }}, Gender: {{ appointment.patient.gender }}<br>
+                    Date: {{ appointment.date }}, Time: {{ appointment.time }}, Reason: {{ appointment.reason }}
+                </li>
+            {% empty %}
+                <li>No appointments available.</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {%endblock content%}
+</body>
+</html>
