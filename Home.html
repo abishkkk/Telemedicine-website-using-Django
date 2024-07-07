@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Our Website!</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    {%include 'navbar.html'%}
+    {% block content%}
+    <h1>Welcome to Our Website!</h1>
+    {% if user.is_authenticated %}
+
+
+        <p>You are already registered. Click <a href="{% url 'login' %}">here</a> to log in.</p>
+    {% else %}
+        <p>If you are not registered, <a href="{% url 'registeration' %}">click here</a> to register.</p>
+        <p>If you are already registered,  <a href="{% url 'login' %}">click here</a> to log in.</p>
+    {% endif %}
+    {%endblock content%}
+</body>
+</html>
